@@ -3,13 +3,13 @@ grafana:
   adminUser: admin
   adminPassword: cTcTgLE62nItyZzp
   service:
-    type: NodePort 
+    type: LoadBalancer 
 
 # Prometheus server configuration
 prometheus:
   server:
     service:
-      type: NodePort 
+      type: LoadBalancer 
 
 # Optional: disable unnecessary components
 alertmanager:
