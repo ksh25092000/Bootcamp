@@ -1,0 +1,36 @@
+# Grafana configuration
+grafana:
+  adminUser: admin
+  adminPassword: cTcTgLE62nItyZzp
+  service:
+    type: ClusterIP
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.bootcamp.local
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /
+
+# Prometheus server configuration
+prometheus:
+  server:
+    service:
+      type: ClusterIP
+    ingress:
+      enabled: true
+      hosts:
+        - prometheus.bootcamp.local
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/rewrite-target: /
+
+# Optional: disable unnecessary components
+alertmanager:
+  enabled: false
+pushgateway:
+  enabled: false
+kubeStateMetrics:
+  enabled: true
+nodeExporter:
+  enabled: true
